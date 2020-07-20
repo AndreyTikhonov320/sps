@@ -1,10 +1,5 @@
-src/Debug
-src/Release
-src/Test
-src/settings/*
-!src/settings/*.Test.driver.xcl
-*.dep
-*.ewd
-*.ewt
-src/packages
-src/resources/
+MotorControl/.vs
+MotorControl/Debug
+MotorControl/Release
+MotorControl/Test
+
