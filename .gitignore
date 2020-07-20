@@ -1,0 +1,10 @@
+src/Debug
+src/Release
+src/Test
+src/settings/*
+!src/settings/*.Test.driver.xcl
+*.dep
+*.ewd
+*.ewt
+src/packages
+src/resources/
