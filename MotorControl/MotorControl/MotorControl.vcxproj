@@ -147,17 +147,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AccelLoop.h" />
+    <ClInclude Include="ConfigLinker.h" />
+    <ClInclude Include="ControlBase.h" />
+    <ClInclude Include="MCU.h" />
+    <ClInclude Include="Oscillator.h" />
+    <ClInclude Include="OscillatorChannel.h" />
+    <ClInclude Include="TimerCore.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="STM32.h" />
+    <ClInclude Include="STM32_CONFIG.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UserTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AccelLoop.cpp" />
+    <ClCompile Include="ConfigLinker.cpp" />
+    <ClCompile Include="ControlBase.cpp" />
+    <ClCompile Include="MCU.cpp" />
     <ClCompile Include="MotorControl.cpp" />
+    <ClCompile Include="Oscillator.cpp" />
+    <ClCompile Include="OscillatorChannel.cpp" />
+    <ClCompile Include="TimerCore.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="STM32.cpp" />
+    <ClCompile Include="STM32_CONFIG.cpp" />
+    <ClCompile Include="UserTimer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
