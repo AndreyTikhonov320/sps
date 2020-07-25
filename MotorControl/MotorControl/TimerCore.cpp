@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "TimerCore.h"
 
 TimerCore::TimerCore(const char* name)

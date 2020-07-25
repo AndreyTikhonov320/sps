@@ -1,7 +1,7 @@
-#include "AccelLoop.h"
+#include "VelLoop.h"
 
 
-AccelLoop::AccelLoop()
+VelLoop::VelLoop()
 	: ControlBase(__FUNCTION__)
 	, reference(0)
 	, feedback(0)
@@ -9,21 +9,21 @@ AccelLoop::AccelLoop()
 }
 
 
-AccelLoop::~AccelLoop()
+VelLoop::~VelLoop()
 {
 }
 
-void AccelLoop::set_reference(InputParameter ref)
+void VelLoop::set_reference(InputParameter ref)
 {
 	reference = ref;
 }
 
-void AccelLoop::set_feedback(InputParameter fb)
+void VelLoop::set_feedback(InputParameter fb)
 {
 	feedback = fb;
 }
 
-void AccelLoop::OnTime()
+void VelLoop::OnTime()
 {
 	//the simplest internal structure of a control module is retranslation of the input to output
 	//InputParameter out = reference;

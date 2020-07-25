@@ -1,0 +1,4 @@
+[submodule "MotorControl/MotorControl/Tools/rapidjson"]
+	path = MotorControl/MotorControl/Tools/rapidjson
+	url = https://github.com/Tencent/rapidjson.git
+	branch = master

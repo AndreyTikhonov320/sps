@@ -8,9 +8,12 @@ class MCU_CONFIG{
 public:
 	virtual ~MCU_CONFIG() {}
 
-	virtual uint32_t TIM1_time()=0;
-	virtual uint32_t TIM1_interrupt_priority_group()=0;
-	virtual uint32_t TIM1_interrupt_order_group_in_group()=0;
+	virtual uint32_t TIM1_time() = 0;
+	virtual uint32_t TIM1_interrupt_priority_group() = 0;
+	virtual uint32_t TIM1_interrupt_order_group_in_group() = 0;
+	virtual uint32_t TIM2_time() = 0;
+	virtual uint32_t TIM2_interrupt_priority_group() = 0;
+	virtual uint32_t TIM2_interrupt_order_group_in_group() = 0;
 
 };
 
@@ -38,7 +41,7 @@ class MCU
 {
 public:
 	virtual ~MCU() {}
-	virtual TIM* tim() = 0;
+	virtual TIM* tim(int index) = 0;
 };
 
 };

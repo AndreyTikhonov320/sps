@@ -11,6 +11,9 @@ namespace MCU
 		virtual uint32_t TIM1_time();
 		virtual uint32_t TIM1_interrupt_priority_group();
 		virtual uint32_t TIM1_interrupt_order_group_in_group();
+		virtual uint32_t TIM2_time();
+		virtual uint32_t TIM2_interrupt_priority_group();
+		virtual uint32_t TIM2_interrupt_order_group_in_group();
 
 		static MCU_CONFIG* instance();
 

@@ -1,8 +1,8 @@
-#include "stdafx.h"
 #include "STM32.h"
 
 namespace MCU {
 	STM32_TIM1* STM32::tim1_instance = NULL;
+	STM32_TIM2* STM32::tim2_instance = NULL;
 
 	STM32::STM32()
 	{
@@ -14,12 +14,23 @@ namespace MCU {
 	}
 
 
-	TIM* STM32::tim()
+	TIM* STM32::tim(int index)
 	{
-		if (NULL == STM32::tim1_instance) {
-			STM32::tim1_instance = new STM32_TIM1();
+		if (0 == index)
+		{		
+			if (NULL == STM32::tim1_instance) {
+				STM32::tim1_instance = new STM32_TIM1();				
+			}
+			return STM32::tim1_instance;
 		}
-		return tim1_instance;
+		if (1 == index)
+		{
+			if (NULL == STM32::tim2_instance) {
+				STM32::tim2_instance = new STM32_TIM2();
+			}
+			return STM32::tim2_instance;
+		}
+		return NULL;
 	}
 
 	STM32* STM32::reference()
