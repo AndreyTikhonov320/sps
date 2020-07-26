@@ -60,6 +60,9 @@
     <ClInclude Include="OS.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="BasicReferance.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MotorControl.cpp">
@@ -102,6 +105,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="OS.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicReferance.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,15 +3,15 @@
 
 class InputParameter {
 public:
-	InputParameter(uint32_t in) : parameter(in) {}
+	InputParameter(uint32_t in) : m_parameter(in) {}
 	virtual ~InputParameter() {}
-	InputParameter operator-(const InputParameter& p) const { return parameter - p.parameter; }
-	InputParameter operator*(const InputParameter& p) const { return parameter * p.parameter; }
-	InputParameter operator*(const int& p) const { return parameter * p; }
+	InputParameter operator-(const InputParameter& p) const { return m_parameter - p.m_parameter; }
+	InputParameter operator*(const InputParameter& p) const { return m_parameter * p.m_parameter; }
+	InputParameter operator*(const int& p) const { return m_parameter * p; }
 private:
 	InputParameter() {}
 private:
-	uint32_t parameter;
+	uint32_t m_parameter;
 };
 
 class ControlBase :
@@ -30,7 +30,12 @@ protected:
 	void set_output(InputParameter ref);
 
 private:
-	ControlBase* output;
+	ControlBase*	m_output;
+	std::string		m_module_name;
+public:
+
+	// Connect the module to imput of the following module in the chain
+	bool set_output_link(ControlBase* input_module_ptr);
 };
 
 

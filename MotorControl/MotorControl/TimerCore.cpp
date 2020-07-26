@@ -1,11 +1,12 @@
 #include "TimerCore.h"
 
 TimerCore::TimerCore(const char* name)
-	: module_name(name)
+	: m_module_name(name)
+	, m_registered_timers_amount(0)
 {
 	for (int i = 0; i < MAX_TIMER_AMOUNT; i++)
 	{
-		timer_list[i] = NULL;
+		m_timer_list[i] = NULL;
 	}
 }
 
@@ -19,12 +20,11 @@ TimerCore::~TimerCore()
 //return False if the timer can't be added to the list
 bool TimerCore::register_timer(UserTimer* timer)
 {
-	for (int i = 0; i < MAX_TIMER_AMOUNT; i++)
+	if (m_registered_timers_amount < MAX_TIMER_AMOUNT)
 	{
-		if (NULL == timer_list[i]) {
-			timer_list[i] = timer;
-			return true;
-		}
+		m_timer_list[m_registered_timers_amount] = timer;
+		m_registered_timers_amount++;
+		return true;
 	}
 	return false;
 }
@@ -32,10 +32,10 @@ bool TimerCore::register_timer(UserTimer* timer)
 
 void TimerCore::OnCallback()
 {
-	for (int i = 0; i < MAX_TIMER_AMOUNT; i++)
+	for (int i = 0; i < m_registered_timers_amount; i++)
 	{
-		if (NULL != timer_list[i]) {
-			timer_list[i]->OnTime();
+		if (NULL != m_timer_list[i]) {
+			m_timer_list[i]->OnTime();
 		}
 	}
 }

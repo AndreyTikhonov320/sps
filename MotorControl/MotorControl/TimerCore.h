@@ -2,6 +2,7 @@
 #include "STM32.h"
 #include "UserTimer.h"
 
+#define ASSERT(cond) typedef int foo[(cond) ? 1 : -1]
 
 class TimerCore : public MCU::TIM::ServiceHandler
 {
@@ -15,8 +16,12 @@ public:
 	virtual void OnCallback();
 
 private:
-	static const uint32_t MAX_TIMER_AMOUNT = 8;
-	UserTimer* timer_list[MAX_TIMER_AMOUNT];
-	std::string module_name;
+	#define					__MAX_TIMER_AMOUNT__ 8
+	static const uint32_t	MAX_TIMER_AMOUNT = __MAX_TIMER_AMOUNT__;
+	UserTimer*				m_timer_list[MAX_TIMER_AMOUNT];
+	std::string				m_module_name;
+	uint8_t					m_registered_timers_amount;
+
+	ASSERT(__MAX_TIMER_AMOUNT__ < 256);  //"The paramter value could not be more 255"
 };
 

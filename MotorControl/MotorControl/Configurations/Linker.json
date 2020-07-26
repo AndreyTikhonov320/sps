@@ -8,6 +8,12 @@
     "Resources.VelLoop.timer_type":"TimerCore",
     "Resources.VelLoop.timer_number":1,
 
+    "Links.VelLoop.output.module":"AccelLoop",
+    "Links.VelLoop.output.pin":"reference",
+
+    "Links.BasicReference.output.module":"VelLoop",
+    "Links.BasicReference.output.pin":"reference",
+
     "Resources": {
         "AccelLoop" : {
             "timer_type":"TimerCore",
@@ -15,7 +21,7 @@
         }
     },
     "Links": {
-        "USB" : {
+        "BasicReferance" : {
             "output": {
                 "module":"AccelLoop",
                 "pin":"reference"

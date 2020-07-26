@@ -3,8 +3,8 @@
 
 AccelLoop::AccelLoop()
 	: ControlBase(__FUNCTION__)
-	, reference(0)
-	, feedback(0)
+	, m_reference(0)
+	, m_feedback(0)
 {
 }
 
@@ -15,18 +15,18 @@ AccelLoop::~AccelLoop()
 
 void AccelLoop::set_reference(InputParameter ref)
 {
-	reference = ref;
+	m_reference = ref;
 }
 
 void AccelLoop::set_feedback(InputParameter fb)
 {
-	feedback = fb;
+	m_feedback = fb;
 }
 
 void AccelLoop::OnTime()
 {
 	//the simplest internal structure of a control module is retranslation of the input to output
 	//InputParameter out = reference;
-	InputParameter out = (reference - feedback) * 10;
+	InputParameter out = (m_reference - m_feedback) * 10;
 	set_output(out);
 }

@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AccelLoop.h" />
+    <ClInclude Include="BasicReferance.h" />
     <ClInclude Include="ConfigLinker.h" />
     <ClInclude Include="ControlBase.h" />
     <ClInclude Include="MCU.h" />
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccelLoop.cpp" />
+    <ClCompile Include="BasicReferance.cpp" />
     <ClCompile Include="ConfigLinker.cpp" />
     <ClCompile Include="ControlBase.cpp" />
     <ClCompile Include="MCU.cpp" />

@@ -13,7 +13,7 @@ public:
 	virtual void OnTime();
 
 private:
-	InputParameter reference;
-	InputParameter feedback;
+	InputParameter m_reference;
+	InputParameter m_feedback;
 };
 
