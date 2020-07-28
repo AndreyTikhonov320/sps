@@ -1,10 +1,11 @@
 #pragma once
 #include "ControlBase.h"
 class VelLoop :
-	public ControlBase
+	public IControlBase
 {
 public:
-	VelLoop();
+	VelLoop() = delete;
+	VelLoop(IConfigLinker* linker);
 	virtual ~VelLoop();
 
 	virtual void set_reference(InputParameter ref);

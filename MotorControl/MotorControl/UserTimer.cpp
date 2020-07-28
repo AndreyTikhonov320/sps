@@ -1,18 +1,20 @@
-#include "UserTimer.h"
 #include "ConfigLinker.h"
+#include "UserTimer.h"
 
-UserTimer::UserTimer()
+
+IUserTimer::IUserTimer()
 {
 }
 
-UserTimer::UserTimer(const char* module_name)
+IUserTimer::IUserTimer(IConfigLinker* linker, const char* module_name)
+	: m_linker(linker)
 {
-	TimerCore* timer_core_ptr = ConfigLinker::instance()->get_timer(module_name);
+	TimerCore* timer_core_ptr = m_linker->get_timer(module_name);
 	if(NULL != timer_core_ptr)
 		timer_core_ptr->register_timer(this);
 }
 
 
-UserTimer::~UserTimer()
+IUserTimer::~IUserTimer()
 {
 }

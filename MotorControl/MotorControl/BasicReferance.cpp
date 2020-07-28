@@ -1,8 +1,8 @@
 #include "BasicReferance.h"
 
 
-BasicReference::BasicReference()
-	: ControlBase(__FUNCTION__)
+BasicReference::BasicReference(IConfigLinker* linker)
+	: IControlBase(linker, __FUNCTION__)
 {
 }
 

@@ -1,15 +1,18 @@
 #pragma once
 #include <iostream>
+#include "ConfigLinker.h"
+class IConfigLinker;
+class IControlBase;
 
-
-class UserTimer
+class IUserTimer
 {
 public:
-	UserTimer(const char* module_name);
-	virtual ~UserTimer();
+	IUserTimer(IConfigLinker* linker, const char* module_name);
+	virtual ~IUserTimer();
 
 	virtual void OnTime() = 0;
 private:
-	UserTimer();
+	IUserTimer();
+	IConfigLinker* m_linker;
 };
 

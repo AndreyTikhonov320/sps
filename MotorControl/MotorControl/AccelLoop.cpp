@@ -1,8 +1,8 @@
 #include "AccelLoop.h"
 
 
-AccelLoop::AccelLoop()
-	: ControlBase(__FUNCTION__)
+AccelLoop::AccelLoop(IConfigLinker* linker)
+	: IControlBase(linker, __FUNCTION__)
 	, m_reference(0)
 	, m_feedback(0)
 {

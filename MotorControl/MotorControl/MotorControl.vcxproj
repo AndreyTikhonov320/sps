@@ -152,12 +152,15 @@
     <ClInclude Include="AccelLoop.h" />
     <ClInclude Include="BasicReferance.h" />
     <ClInclude Include="ConfigLinker.h" />
+    <ClInclude Include="ConfigLinkerJson.h" />
     <ClInclude Include="ControlBase.h" />
     <ClInclude Include="MCU.h" />
     <ClInclude Include="Modules\FS.h" />
+    <ClInclude Include="Modules\WinFS.h" />
     <ClInclude Include="OS.h" />
     <ClInclude Include="Oscillator.h" />
     <ClInclude Include="OscillatorChannel.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="TimerCore.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="STM32.h" />
@@ -170,9 +173,10 @@
     <ClCompile Include="AccelLoop.cpp" />
     <ClCompile Include="BasicReferance.cpp" />
     <ClCompile Include="ConfigLinker.cpp" />
+    <ClCompile Include="ConfigLinkerJson.cpp" />
     <ClCompile Include="ControlBase.cpp" />
     <ClCompile Include="MCU.cpp" />
-    <ClCompile Include="Modules\FS.cpp" />
+    <ClCompile Include="Modules\WinFS.cpp" />
     <ClCompile Include="MotorControl.cpp" />
     <ClCompile Include="OS.cpp" />
     <ClCompile Include="Oscillator.cpp" />
@@ -182,6 +186,9 @@
     <ClCompile Include="STM32_CONFIG.cpp" />
     <ClCompile Include="UserTimer.cpp" />
     <ClCompile Include="VelLoop.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MotorControl.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

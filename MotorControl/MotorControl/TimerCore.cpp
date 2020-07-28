@@ -1,3 +1,4 @@
+#include "ConfigLinker.h"
 #include "TimerCore.h"
 
 TimerCore::TimerCore(const char* name)
@@ -18,7 +19,7 @@ TimerCore::~TimerCore()
 
 
 //return False if the timer can't be added to the list
-bool TimerCore::register_timer(UserTimer* timer)
+bool TimerCore::register_timer(IUserTimer* timer)
 {
 	if (m_registered_timers_amount < MAX_TIMER_AMOUNT)
 	{

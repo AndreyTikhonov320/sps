@@ -1,8 +1,8 @@
 #include "VelLoop.h"
 
 
-VelLoop::VelLoop()
-	: ControlBase(__FUNCTION__)
+VelLoop::VelLoop(IConfigLinker* linker)
+	: IControlBase(linker, __FUNCTION__)
 	, m_reference(0)
 	, m_feedback(0)
 {

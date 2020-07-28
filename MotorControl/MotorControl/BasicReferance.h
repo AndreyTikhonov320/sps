@@ -1,10 +1,11 @@
 #pragma once
 #include "ControlBase.h"
 class BasicReference :
-	public ControlBase
+	public IControlBase
 {
 public:
-	BasicReference();
+	BasicReference() = delete;
+	BasicReference(IConfigLinker* linker);
 	virtual ~BasicReference();
 
 	virtual void set_reference(InputParameter ref) {}

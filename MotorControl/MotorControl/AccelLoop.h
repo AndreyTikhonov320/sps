@@ -1,10 +1,12 @@
 #pragma once
 #include "ControlBase.h"
+
 class AccelLoop :
-	public ControlBase
+	public IControlBase
 {
 public:
-	AccelLoop();
+	AccelLoop() = delete;
+	AccelLoop(IConfigLinker* linker);
 	virtual ~AccelLoop();
 
 	virtual void set_reference(InputParameter ref);

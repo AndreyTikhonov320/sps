@@ -2,5 +2,5 @@ MotorControl/.vs
 MotorControl/Debug
 MotorControl/MotorControl/Debug
 MotorControl/MotorControl/Release
-MotorControl/MotorControl/Test
-
+MotorControl/UTests/Debug
+MotorControl/packages

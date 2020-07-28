@@ -1,15 +1,15 @@
 #pragma once
 namespace OS {
-	class OS
+	class IOS
 	{
 	public:
-		virtual ~OS() {}
+		virtual ~IOS() {}
 		virtual void sleep(uint32_t ms) = 0;
 		virtual void enter_critical_section() = 0;
 		virtual void leave_critical_section() = 0;
 	};
 
-	class WindowsOS : public OS
+	class WindowsOS : public IOS
 	{
 	public:
 		virtual ~WindowsOS();
