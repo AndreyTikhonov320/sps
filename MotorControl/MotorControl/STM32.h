@@ -14,9 +14,9 @@ namespace MCU
 	private:
 		STM32_TIM1()			
 		{
-			uint32_t time = STM32_CONFIG::instance()->TIM1_time();
-			uint32_t pri_group = STM32_CONFIG::instance()->TIM1_interrupt_priority_group();
-			uint32_t pri = STM32_CONFIG::instance()->TIM1_interrupt_order_group_in_group();
+			uint32_t time = STM32_CONFIG::instance()->get_TIM1_time();
+			uint32_t pri_group = STM32_CONFIG::instance()->get_TIM1_interrupt_priority_group();
+			uint32_t pri = STM32_CONFIG::instance()->get_TIM1_interrupt_order_in_group();
 			
 			//initialize TIM registers amd setup interrup control scheme for this timer
 			//...
@@ -41,9 +41,9 @@ namespace MCU
 	private:
 		STM32_TIM2()
 		{
-			uint32_t time = STM32_CONFIG::instance()->TIM2_time();
-			uint32_t pri_group = STM32_CONFIG::instance()->TIM2_interrupt_priority_group();
-			uint32_t pri = STM32_CONFIG::instance()->TIM2_interrupt_order_group_in_group();
+			uint32_t time = STM32_CONFIG::instance()->get_TIM2_time();
+			uint32_t pri_group = STM32_CONFIG::instance()->get_TIM2_interrupt_priority_group();
+			uint32_t pri = STM32_CONFIG::instance()->get_TIM2_interrupt_order_in_group();
 
 			//initialize TIM registers amd setup interrup control scheme for this timer
 			//...

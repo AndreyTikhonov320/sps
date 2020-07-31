@@ -4,3 +4,4 @@ MotorControl/MotorControl/Debug
 MotorControl/MotorControl/Release
 MotorControl/UTests/Debug
 MotorControl/packages
+MotorControl/MotorControl/Configurations/MCUConfiguration/stm32_configuration_gen.h

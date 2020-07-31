@@ -12,7 +12,7 @@ namespace FS {
 class MockFS : public IFS
 {
 public:
-	MockFS() = delete;
+	MockFS() = delete; 
 	MockFS(const char* json) : m_json(json) {}
 	virtual ~MockFS() {}
 	virtual bool read_text_file(const char* name, char* value, unsigned int max_size) 
