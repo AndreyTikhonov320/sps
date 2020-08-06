@@ -1,13 +1,12 @@
 #pragma once
 #include "ControlBase.h"
-
-class AccelLoop :
+class PwmModule :
 	public IControlBase
 {
 public:
-	AccelLoop() = delete;
-	AccelLoop(IConfigLinker* linker);
-	virtual ~AccelLoop();
+	PwmModule() = delete;
+	PwmModule(IConfigLinker* linker);
+	virtual ~PwmModule();
 
 	virtual void set_input(uint32_t pin_number, InputParameter ref);
 
@@ -15,6 +14,6 @@ public:
 
 private:
 	InputParameter m_reference;
-	InputParameter m_feedback;
+	uint32_t m_max_output;
 };
 

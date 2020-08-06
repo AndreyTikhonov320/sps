@@ -8,8 +8,7 @@ public:
 	VelLoop(IConfigLinker* linker);
 	virtual ~VelLoop();
 
-	virtual void set_reference(InputParameter ref);
-	virtual void set_feedback(InputParameter fb);
+	virtual void set_input(uint32_t , InputParameter ref);
 
 	virtual void OnTime();
 

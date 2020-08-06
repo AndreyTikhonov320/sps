@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AccelFeedback.h" />
     <ClInclude Include="AccelLoop.h" />
     <ClInclude Include="BasicReferance.h" />
     <ClInclude Include="ConfigLinker.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="OS.h" />
     <ClInclude Include="Oscillator.h" />
     <ClInclude Include="OscillatorChannel.h" />
+    <ClInclude Include="PwmModule.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TimerCore.h" />
     <ClInclude Include="stdafx.h" />
@@ -173,6 +175,7 @@
     <ClInclude Include="VelLoop.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AccelFeedback.cpp" />
     <ClCompile Include="AccelLoop.cpp" />
     <ClCompile Include="BasicReferance.cpp" />
     <ClCompile Include="ConfigLinker.cpp" />
@@ -184,6 +187,7 @@
     <ClCompile Include="OS.cpp" />
     <ClCompile Include="Oscillator.cpp" />
     <ClCompile Include="OscillatorChannel.cpp" />
+    <ClCompile Include="PwmModule.cpp" />
     <ClCompile Include="TimerCore.cpp" />
     <ClCompile Include="STM32.cpp" />
     <ClCompile Include="STM32_CONFIG.cpp" />

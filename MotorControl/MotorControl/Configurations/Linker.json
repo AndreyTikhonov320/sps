@@ -2,30 +2,24 @@
     "Resources.TimerCore0.hal_timer_number":0,
     "Resources.TimerCore1.hal_timer_number":1,
 
+    "Resources.AccelFeedback.timer_type":"TimerCore",
+    "Resources.AccelFeedback.timer_number":0,
+
     "Resources.AccelLoop.timer_type":"TimerCore",
     "Resources.AccelLoop.timer_number":0,
 
     "Resources.VelLoop.timer_type":"TimerCore",
     "Resources.VelLoop.timer_number":1,
 
+    "Links.AccelLoop.output.module":"PwmModule",
+    "Links.AccelLoop.output.pin_number":0,
+
+    "Links.AccelFeedback.output.module":"AccelLoop",
+    "Links.AccelFeedback.output.pin_number":1,
+
     "Links.VelLoop.output.module":"AccelLoop",
-    "Links.VelLoop.output.pin":"reference",
+    "Links.VelLoop.output.pin_number":0,
 
     "Links.BasicReference.output.module":"VelLoop",
-    "Links.BasicReference.output.pin":"reference",
-
-    "Resources": {
-        "AccelLoop" : {
-            "timer_type":"TimerCore",
-            "timer_number":0
-        }
-    },
-    "Links": {
-        "BasicReferance" : {
-            "output": {
-                "module":"AccelLoop",
-                "pin":"reference"
-            }
-        }
-    }
+    "Links.BasicReference.output.pin_number":0
 }

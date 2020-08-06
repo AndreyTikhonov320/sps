@@ -35,19 +35,19 @@ bool ConfigLinkerJson::connect_control_base_to(const char* module_name, IControl
 	std::string query_output_module("Links.");
 	query_output_module += module_name;
 	restrict_module_name(&query_output_module);
-	std::string query_output_pin(query_output_module);
+	std::string query_output_pin_number(query_output_module);
 	query_output_module += ".output.module";
-	query_output_pin += ".output.pin";
+	query_output_pin_number += ".output.pin_number";
 
 	if (!m_document.HasMember(query_output_module.c_str())) return false;
-	if (!m_document.HasMember(query_output_pin.c_str())) return false;
+	if (!m_document.HasMember(query_output_pin_number.c_str())) return false;
 	const char* output_module_name = m_document[query_output_module.c_str()].GetString();
-	const char* output_pin_name = m_document[query_output_pin.c_str()].GetString();
+	int output_pin_number = m_document[query_output_pin_number.c_str()].GetInt();
 
 	//find the module ptr and connect to
 	std::map<std::string, IControlBase*>::iterator iter;
 	iter = m_app_modules.find(output_module_name);
-	module_ptr->set_output_link(iter->second);
+	module_ptr->set_output_link(iter->second, output_pin_number);
 
 	return true;
 }
@@ -81,7 +81,7 @@ bool ConfigLinkerJson::parse_configuration()
 	//#if 0
 							// "normal" parsing, decode strings to new buffers. Can use other input stream via ParseStream().
 	if (m_document.Parse(m_json).HasParseError())
-		return 1;
+		return false;
 	//#else
 	//						// In-situ parsing, decode strings directly in the source string. Source must be string.
 	//	char buffer[sizeof(m_json)];

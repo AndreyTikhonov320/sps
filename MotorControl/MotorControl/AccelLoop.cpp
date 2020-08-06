@@ -13,14 +13,17 @@ AccelLoop::~AccelLoop()
 {
 }
 
-void AccelLoop::set_reference(InputParameter ref)
+void AccelLoop::set_input(uint32_t pin_number, InputParameter ref)
 {
-	m_reference = ref;
-}
-
-void AccelLoop::set_feedback(InputParameter fb)
-{
-	m_feedback = fb;
+	switch (pin_number)
+	{
+	case IControlBase::REFERENCE_PIN_NUMBER:
+		m_reference = ref;
+		break;
+	case IControlBase::FEEDBACK_PIN_NUMBER:
+		m_feedback = ref;
+		break;
+	}
 }
 
 void AccelLoop::OnTime()
@@ -28,5 +31,5 @@ void AccelLoop::OnTime()
 	//the simplest internal structure of a control module is retranslation of the input to output
 	//InputParameter out = reference;
 	InputParameter out = (m_reference - m_feedback) * 10;
-	set_output(out);
+	set_output(m_output_pin_number, out);
 }

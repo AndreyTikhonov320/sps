@@ -8,8 +8,7 @@ public:
 	BasicReference(IConfigLinker* linker);
 	virtual ~BasicReference();
 
-	virtual void set_reference(InputParameter ref) {}
-	virtual void set_feedback(InputParameter fb) {}
+	virtual void set_input(uint32_t, InputParameter ref) {}
 
 	virtual void OnTime() {}
 	void temp_input(uint32_t input);

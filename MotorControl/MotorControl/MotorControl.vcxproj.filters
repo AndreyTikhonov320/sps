@@ -72,6 +72,12 @@
     <ClInclude Include="ConfigLinkerJson.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="AccelFeedback.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="PwmModule.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MotorControl.cpp">
@@ -120,6 +126,12 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ConfigLinkerJson.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="AccelFeedback.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PwmModule.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

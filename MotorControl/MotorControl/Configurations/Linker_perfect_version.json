@@ -1,0 +1,16 @@
+{
+    "Resources": {
+        "AccelLoop" : {
+            "timer_type":"TimerCore",
+            "timer_number":0
+        }
+    },
+    "Links": {
+        "BasicReferance" : {
+            "output": {
+                "module":"AccelLoop",
+                "pin":"reference"
+            }
+        }
+    }
+}
