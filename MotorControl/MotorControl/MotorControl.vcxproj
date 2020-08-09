@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Tikhonov\progs\education\sps\MotorControl\MotorControl\Tools\rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Tikhonov\progs\education\sps\MotorControl\MotorControl\Modules;C:\Tikhonov\progs\education\sps\MotorControl\MotorControl\Tools\rapidjson\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>&lt;наследовать от родителя или от значений по умчанию для проекта&gt;</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -160,6 +160,7 @@
     <ClInclude Include="ControlBase.h" />
     <ClInclude Include="MCU.h" />
     <ClInclude Include="Modules\FS.h" />
+    <ClInclude Include="Modules\Parameters\SPSParameters.h" />
     <ClInclude Include="Modules\WinFS.h" />
     <ClInclude Include="OS.h" />
     <ClInclude Include="Oscillator.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="ConfigLinkerJson.cpp" />
     <ClCompile Include="ControlBase.cpp" />
     <ClCompile Include="MCU.cpp" />
+    <ClCompile Include="Modules\Parameters\SPSParameters.cpp" />
     <ClCompile Include="Modules\WinFS.cpp" />
     <ClCompile Include="MotorControl.cpp" />
     <ClCompile Include="OS.cpp" />
