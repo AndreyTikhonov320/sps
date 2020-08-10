@@ -5,11 +5,11 @@ PwmModule::PwmModule(IConfigLinker* linker, SystemParameters::SPSParameters* con
 	: IControlBase(linker, __FUNCTION__)
 	, m_reference(0)
 	, m_max_output(2048)
-	, m_MAX(	config,
+	, m_MAX_PWM(	config,
 				this, 
-				PARAMETER_SHORT_NAME__MAX.c_str(), 
-				PARAMETER_ADDRESS__MAX, 
-				PARAMETER_DEFAULT__MAX,
+				PARAMETER_SHORT_NAME__MAX_PWM, 
+				PARAMETER_ADDRESS__MAX_PWM,
+				PARAMETER_DEFAULT__MAX_PWM,
 				SystemParameters::SPSParamterDescriptor::STATIC_PARAMETER_TYPE,
 				SystemParameters::ParameterRange(1024, 2048))
 {
@@ -39,24 +39,24 @@ void PwmModule::OnTime()
 
 SystemParameters::SPSParameterValue PwmModule::read_param_value(const char* short_name)
 {
-	if (PARAMETER_SHORT_NAME__MAX == short_name) {
-		return m_MAX.get_value();
+	if (PARAMETER_SHORT_NAME__MAX_PWM == short_name) {
+		return m_MAX_PWM.get_value();
 	}
-	return m_MAX.get_value();
+	return m_MAX_PWM.get_value();
 }
 
 SystemParameters::SPSParameterValue PwmModule::read_param_value(uint32_t address)
 {
-	if (PARAMETER_ADDRESS__MAX == address) {
-		return m_MAX.get_value();
+	if (PARAMETER_ADDRESS__MAX_PWM == address) {
+		return m_MAX_PWM.get_value();
 	}
-	return m_MAX.get_value();
+	return m_MAX_PWM.get_value();
 }
 
 bool PwmModule::write_param_value(const char* short_name, const SystemParameters::SPSParameterValue& v)
 {
-	if (PARAMETER_SHORT_NAME__MAX == short_name) {
-		m_MAX.set_value(v);
+	if (PARAMETER_SHORT_NAME__MAX_PWM == short_name) {
+		m_MAX_PWM.set_value(v);
 		return true;
 	}
 	return false;
@@ -64,8 +64,8 @@ bool PwmModule::write_param_value(const char* short_name, const SystemParameters
 
 bool PwmModule::write_param_value(uint32_t address, const SystemParameters::SPSParameterValue& v)
 {
-	if (PARAMETER_ADDRESS__MAX == address) {
-		m_MAX.set_value(v);
+	if (PARAMETER_ADDRESS__MAX_PWM == address) {
+		m_MAX_PWM.set_value(v);
 		return true;
 	}
 	return false;

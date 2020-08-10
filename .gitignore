@@ -5,3 +5,5 @@ MotorControl/MotorControl/Release
 MotorControl/UTests/Debug
 MotorControl/packages
 MotorControl/MotorControl/Configurations/MCUConfiguration/stm32_configuration_gen.h
+MotorControl/MotorControl/Modules/Parameters/.idea
+MotorControl/MotorControl/Modules/Parameters/sps_paramters.json

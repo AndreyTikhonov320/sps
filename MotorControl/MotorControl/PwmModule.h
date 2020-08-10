@@ -21,11 +21,12 @@ public:
 private:
 	InputParameter m_reference;
 	uint32_t m_max_output;
-	SystemParameters::SPSParamterDescriptor m_MAX;
+	SystemParameters::SPSParamterDescriptor m_MAX_PWM;
 
 private:
-	const std::string PARAMETER_SHORT_NAME__MAX = "pwm_max";
-	const uint32_t PARAMETER_ADDRESS__MAX = 0x00000001;
-	const uint32_t PARAMETER_DEFAULT__MAX = 2048;
+	#define PARAMETER_SHORT_PATH__MAX_PWM		"Static/Accelerate"
+	#define PARAMETER_SHORT_NAME__MAX_PWM		"pw001"
+	#define PARAMETER_ADDRESS__MAX_PWM			(1)
+	#define PARAMETER_DEFAULT__MAX_PWM			(2048)
 };
 
