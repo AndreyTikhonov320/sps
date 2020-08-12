@@ -33,6 +33,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="..\MotorControl\Modules\Parameters\SPSParameters.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +43,7 @@
     <ClCompile Include="..\MotorControl\ConfigLinkerJson.cpp" />
     <ClCompile Include="..\MotorControl\ControlBase.cpp" />
     <ClCompile Include="..\MotorControl\MCU.cpp" />
+    <ClCompile Include="..\MotorControl\Modules\Parameters\SPSParameters.cpp" />
     <ClCompile Include="..\MotorControl\OS.cpp" />
     <ClCompile Include="..\MotorControl\Oscillator.cpp" />
     <ClCompile Include="..\MotorControl\OscillatorChannel.cpp" />
@@ -57,6 +59,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SPSParametersTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MotorControl\MotorControl.vcxproj">
@@ -81,7 +84,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>C:\Tikhonov\progs\education\sps\MotorControl\MotorControl\Tools\rapidjson\include;C:\Tikhonov\progs\education\sps\MotorControl\MotorControl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../MotorControl/Modules/;../MotorControl;../MotorControl/Tools/rapidjson/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

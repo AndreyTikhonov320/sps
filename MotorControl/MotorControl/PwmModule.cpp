@@ -37,35 +37,20 @@ void PwmModule::OnTime()
 {
 }
 
-SystemParameters::SPSParameterValue PwmModule::read_param_value(const char* short_name)
+//callback methods for change notification only
+void PwmModule::on_read_param_value(uint32_t address)
 {
-	if (PARAMETER_SHORT_NAME__MAX_PWM == short_name) {
-		return m_MAX_PWM.get_value();
+	if (PARAMETER_ADDRESS__MAX_PWM == address) 
+	{
+		
 	}
-	return m_MAX_PWM.get_value();
 }
 
-SystemParameters::SPSParameterValue PwmModule::read_param_value(uint32_t address)
+//callback methods for change notification only
+bool PwmModule::on_write_param_value(uint32_t address, const SystemParameters::SPSParameterValue& v)
 {
-	if (PARAMETER_ADDRESS__MAX_PWM == address) {
-		return m_MAX_PWM.get_value();
-	}
-	return m_MAX_PWM.get_value();
-}
-
-bool PwmModule::write_param_value(const char* short_name, const SystemParameters::SPSParameterValue& v)
-{
-	if (PARAMETER_SHORT_NAME__MAX_PWM == short_name) {
-		m_MAX_PWM.set_value(v);
-		return true;
-	}
-	return false;
-}
-
-bool PwmModule::write_param_value(uint32_t address, const SystemParameters::SPSParameterValue& v)
-{
-	if (PARAMETER_ADDRESS__MAX_PWM == address) {
-		m_MAX_PWM.set_value(v);
+	if (PARAMETER_ADDRESS__MAX_PWM == address) 
+	{
 		return true;
 	}
 	return false;

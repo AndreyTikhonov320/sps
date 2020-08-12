@@ -49,49 +49,22 @@ void AccelLoop::OnTime()
 	set_output(m_output_pin_number, out);
 }
 
-SystemParameters::SPSParameterValue AccelLoop::read_param_value(const char* short_name)
-{
-	if (PARAMETER_SHORT_NAME__Kp == short_name) {
-		return m_Kp.get_value();
-	}
-	else if (PARAMETER_SHORT_NAME__Ki == short_name) {
-		return m_Ki.get_value();
-	}
-	return m_Kp.get_value();
-}
-
-SystemParameters::SPSParameterValue AccelLoop::read_param_value(uint32_t address)
+//callback methods for change notification only
+void AccelLoop::on_read_param_value(uint32_t address)
 {
 	if (PARAMETER_ADDRESS__Kp == address) {
-		return m_Kp.get_value();
 	}
 	else if (PARAMETER_ADDRESS__Ki == address) {
-		return m_Ki.get_value();
 	}
-	return m_Kp.get_value();
 }
 
-bool AccelLoop::write_param_value(const char* short_name, const SystemParameters::SPSParameterValue& v)
-{
-	if (PARAMETER_SHORT_NAME__Kp == short_name) {
-		m_Kp.set_value(v);
-		return true;
-	}
-	else if (PARAMETER_SHORT_NAME__Ki == short_name) {
-		m_Ki.set_value(v);
-		return true;
-	}
-	return false;
-}
-
-bool AccelLoop::write_param_value(uint32_t address, const SystemParameters::SPSParameterValue& v)
+//callback methods for change notification only
+bool AccelLoop::on_write_param_value(uint32_t address, const SystemParameters::SPSParameterValue& v)
 {
 	if (PARAMETER_ADDRESS__Kp == address) {
-		m_Kp.set_value(v);
 		return true;
 	}
 	else if (PARAMETER_ADDRESS__Ki == address) {
-		m_Ki.set_value(v);
 		return true;
 	}
 	return false;

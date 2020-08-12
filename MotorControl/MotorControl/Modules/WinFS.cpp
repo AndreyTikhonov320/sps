@@ -1,7 +1,10 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 #include "WinFS.h"
+
+using namespace std;
 
 namespace FS {
 	WinFS::WinFS()
@@ -20,6 +23,18 @@ namespace FS {
 		if ((error != 0) || (file == NULL)) return false;
 		//if (filelength(file)
 		fread(value, sizeof(char), max_size, file);
+		fclose(file);
+		return true;
+	}
+
+	bool WinFS::write_text_file(const char* name, const char* value)
+	{
+		ofstream f;
+		f.open(name, std::ofstream::trunc);
+		if (!f.is_open()) return false;
+		f << value;
+		f.flush();
+		f.close();
 		return true;
 	}
 };

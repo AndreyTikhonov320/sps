@@ -21,8 +21,17 @@ public:
 		memcpy(value, m_json, strlen(m_json)+1);
 		return true;
 	}
+	virtual bool write_text_file(const char* name, const char* value)
+	{
+		m_json_for_write_operation = value;
+		return true;
+	}
+
+	const char* get_json_after_write_operation() { return m_json_for_write_operation.c_str(); }
+
 private:
 	const char* m_json;
+	std::string m_json_for_write_operation;
 };
 };
 

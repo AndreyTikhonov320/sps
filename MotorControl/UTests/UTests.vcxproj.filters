@@ -45,9 +45,12 @@
       <Filter>MotorControlSources</Filter>
     </ClCompile>
     <ClCompile Include="ConfigLinkerTest.cpp" />
+    <ClCompile Include="SPSParametersTest.cpp" />
+    <ClCompile Include="..\MotorControl\Modules\Parameters\SPSParameters.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="..\MotorControl\Modules\Parameters\SPSParameters.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="MotorControlSources">

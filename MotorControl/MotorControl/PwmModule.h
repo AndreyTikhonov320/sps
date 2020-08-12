@@ -13,10 +13,9 @@ public:
 
 	virtual void OnTime();
 
-	virtual SystemParameters::SPSParameterValue read_param_value(const char* short_name);
-	virtual SystemParameters::SPSParameterValue read_param_value(uint32_t address);
-	virtual bool write_param_value(const char* short_name, const SystemParameters::SPSParameterValue& v);
-	virtual bool write_param_value(uint32_t address, const SystemParameters::SPSParameterValue& v);
+	//callback methods for change notification only
+	virtual void on_read_param_value(uint32_t address);
+	virtual bool on_write_param_value(uint32_t address, const SystemParameters::SPSParameterValue& v);
 
 private:
 	InputParameter m_reference;

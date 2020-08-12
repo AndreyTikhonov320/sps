@@ -3,26 +3,43 @@
 #include <stdio.h>
 #include <iostream>
 #include <map>
+#include "rapidjson/document.h"     // rapidjson's DOM-style API
+#include "rapidjson/prettywriter.h" // for stringify JSON
+#include "Modules/FS.h"
+
+using namespace rapidjson;
 
 namespace SystemParameters {
-	class IParameters;
 	class SPSParamterDescriptor;
+	class SPSParameterValue;
 
 	//The sigletone object of this class is contains configuration of the system
 	class SPSParameters {
 	public:
 		enum ReturnCode { eOkReturnCode = 0, eErrorReturnCode = 1 };
-		static SPSParameters* instance();
+		SPSParameters() = delete;
+		SPSParameters(FS::IFS* _ptr, const char* config_name);
 		virtual ~SPSParameters();
 		virtual ReturnCode register_parameter(SPSParamterDescriptor* descriptor);
 		virtual bool isParamter(const char* short_name);
-		virtual SPSParamterDescriptor* get_paramter(const char* short_name);
-		virtual void update_parameter(const char* short_name, SPSParamterDescriptor* descriptor);
+		virtual SPSParameterValue get_parameter(const char* short_name);
+		virtual void update_parameter(const char* short_name, SPSParameterValue& value);
+		virtual void reset_all();
 	private:
-		SPSParameters();
+		
+		void update_settings();
+		void read_settings();
+
 	private:
 		std::map< std::string, SPSParamterDescriptor* > m_list_by_name;
 		std::map< uint32_t, SPSParamterDescriptor* > m_list_by_address;
+		FS::IFS* m_fs_ptr;
+		std::string m_file_name;
+		static const uint16_t	JASON_SIZE = 1024;
+		char					m_json[JASON_SIZE];
+		Document				m_document;  // Default template parameter uses UTF8 and MemoryPoolAllocator.
+											 // Indicates the state of the linker
+		bool m_error;
 	};
 
 	class ParameterRange {
@@ -45,13 +62,31 @@ namespace SystemParameters {
 	class SPSParameterValue
 	{
 	public:
+		
 		SPSParameterValue() :m_value(0) {}
 		SPSParameterValue(int32_t v) : m_value(v) {}
 		~SPSParameterValue() {}
 		int32_t get_value() const { return m_value; }
+		const char* get_string() { 			
+			snprintf(m_str, sizeof(m_str), "%d", m_value);
+			return m_str; 
+		};
 		int32_t operator=(int32_t v) { m_value = v; return m_value; }
+		bool	operator==(SPSParameterValue& v) { return (m_value == v.m_value); }
 	private:
 		int32_t m_value;
+		char m_str[11];
+	};
+
+
+	//The interface must be supported by owner of the paramter
+	class IParameters
+	{
+	public:
+		~IParameters() {}
+		//callback methods for change notification only
+		virtual void on_read_param_value(uint32_t address) = 0;
+		virtual bool on_write_param_value(uint32_t address, const SPSParameterValue& v) = 0;
 	};
 
 	//The parameter owner must create and initialize the object of this class 
@@ -61,7 +96,7 @@ namespace SystemParameters {
 		enum PARAMETER_TYPE { STATIC_PARAMETER_TYPE = 0, DYNAMIC_PARAMETER_TYPE = 1 };
 		SPSParamterDescriptor() = delete;
 		SPSParamterDescriptor(	SPSParameters* config,
-								const IParameters* owner, 
+								IParameters* owner, 
 								const char* short_name, 
 								uint32_t addr, 								
 								uint32_t default_value=0, 
@@ -77,14 +112,14 @@ namespace SystemParameters {
 		void set_value(const SPSParameterValue& v) 
 		{ 
 			m_value = m_range.apply_range(v.get_value());
-			m_config->update_parameter(m_short_name.c_str(), this); 
+			m_owner->on_write_param_value(m_addr, m_value);
 		}
 
 	private:
 		friend class SPSParameters;
 
 		SPSParameters*		m_config;
-		const IParameters*	m_owner;
+		IParameters*		m_owner;
 		std::string			m_short_name;
 		uint32_t			m_addr;
 		ParameterRange		m_range;
@@ -92,16 +127,4 @@ namespace SystemParameters {
 		PARAMETER_TYPE		m_is_static;
 		SPSParameterValue	m_value;
 	};
-
-	//The interface must be supported by owner of the paramter
-	class IParameters
-	{
-	public:
-		~IParameters() {}
-		virtual SPSParameterValue read_param_value(const char* short_name) = 0;
-		virtual SPSParameterValue read_param_value(uint32_t address) = 0;
-		virtual bool write_param_value(const char* short_name, const SPSParameterValue& v) = 0;
-		virtual bool write_param_value(uint32_t address, const SPSParameterValue& v) = 0;
-	};
-
 };
