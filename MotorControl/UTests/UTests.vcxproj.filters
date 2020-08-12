@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="..\MotorControl\AccelLoop.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\BasicReferance.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\ConfigLinker.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\ConfigLinkerJson.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\ControlBase.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\MCU.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\OS.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\Oscillator.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\OscillatorChannel.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\STM32_CONFIG.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\TimerCore.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\UserTimer.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\VelLoop.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MotorControl\STM32.cpp">
+      <Filter>MotorControlSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigLinkerTest.cpp" />
+    <ClCompile Include="SPSParametersTest.cpp" />
+    <ClCompile Include="..\MotorControl\Modules\Parameters\SPSParameters.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="..\MotorControl\Modules\Parameters\SPSParameters.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MotorControlSources">
+      <UniqueIdentifier>{d71740bf-55e2-499f-8b3b-3b253f1f034a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

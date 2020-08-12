@@ -1,0 +1,8 @@
+[
+    {"type":"uint16_t"   , "name":"TIM1_time",                          "def":"0x00FF"   ,  "comment":"Time divider for TIM1" },
+    {"type":"uint8_t"    , "name":"TIM1_interrupt_priority_group",      "def":"1"        ,  "comment":"Interrupt group. The smallest number has the highest priority" },
+    {"type":"uint8_t"    , "name":"TIM1_interrupt_order_in_group",      "def":"1800"     ,  "comment":"Interrupt order in the group. The smallest number has the highest priority" },
+    {"type":"uint16_t"   , "name":"TIM2_time",                          "def":"0x00FF"   ,  "comment":"Time divider for TIM2" },
+    {"type":"uint8_t"    , "name":"TIM2_interrupt_priority_group",      "def":"1"        ,  "comment":"Interrupt group. The smallest number has the highest priority" },
+    {"type":"uint8_t"    , "name":"TIM2_interrupt_order_in_group",      "def":"1800"     ,  "comment":"Interrupt order in the group. The smallest number has the highest priority" }
+]
